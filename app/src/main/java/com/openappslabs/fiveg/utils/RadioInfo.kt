@@ -29,7 +29,7 @@ object RadioInfo {
         cls: String
     ): Boolean {
         return try {
-            intent.setComponent(ComponentName(pkg, cls))
+            intent.component = ComponentName(pkg, cls)
             context.startActivity(intent)
             true
         } catch (e: Exception) {
