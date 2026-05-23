@@ -1,5 +1,10 @@
 package com.openappslabs.fiveg.ui.screens.homescreen
 
+import android.app.StatusBarManager
+import android.content.ComponentName
+import android.graphics.drawable.Icon
+import android.os.Build
+import androidx.core.content.getSystemService
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,6 +22,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -27,6 +33,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -35,6 +45,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.openappslabs.fiveg.R
+import com.openappslabs.fiveg.services.FiveGTileService
+import com.openappslabs.fiveg.ui.components.LegacyTileTutorialCard
 import com.openappslabs.fiveg.utils.RadioInfo
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -43,8 +55,23 @@ fun HomeScreen(
     onAboutClick: () -> Unit,
 ) {
     val context = LocalContext.current
-
+    var showTileTutorial by remember { mutableStateOf(false) }
+    val tileComponent = remember(context) { ComponentName(context, FiveGTileService::class.java) }
     val onOpenSettingsClick = { RadioInfo.openRadioInfo(context) }
+    val onAddTileClick: () -> Unit = {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            val statusBarManager = context.getSystemService<StatusBarManager>()
+
+            statusBarManager?.requestAddTileService(
+                tileComponent,
+                "5G",
+                Icon.createWithResource(context, R.drawable.app_icon),
+                context.mainExecutor
+            ) { _ -> }
+        } else {
+            showTileTutorial = true
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -80,12 +107,36 @@ fun HomeScreen(
             )
         },
         bottomBar = {
-            Box(
+            Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .navigationBarsPadding()
                     .padding(16.dp)
             ) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    OutlinedButton(
+                        onClick = onAddTileClick,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(56.dp),
+                        shape = RoundedCornerShape(16.dp),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            contentColor = MaterialTheme.colorScheme.primary
+                        )
+                    ) {
+                        Text(
+                            text = "Add Quick Settings Tile",
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
+                    Spacer(modifier = Modifier.height(16.dp))
+                }
+                if (showTileTutorial) {
+                    LegacyTileTutorialCard(
+                        onDismissRequest = { showTileTutorial = false }
+                    )
+                }
                 Button(
                     onClick = onOpenSettingsClick,
                     modifier = Modifier
@@ -141,7 +192,7 @@ fun HomeScreen(
                     
                     StepItem(number = "1", text = "Tap 'Open 5G Settings' below.")
                     StepItem(number = "2", text = "Scroll down to 'Set Preferred Network Type'.")
-                    StepItem(number = "3", text = "Select 'NR Only' or 'NR/LTE'.")
+                    StepItem(number = "3", text = "Select 'NR Only'.")
                     StepItem(number = "4", text = "Enjoy 5G!")
                 }
             }
@@ -173,7 +224,7 @@ fun HomeScreen(
                     }
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = "Selecting 'NR Only' (5G Only) may prevent you from making or receiving calls if your carrier doesn't support. Choose 'NR/LTE' to stay connected for calls.",
+                        text = "In case you don't see the signal, set network to 'LTE/4G' from your phone's settings. Else it works just fine.",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onErrorContainer
                     )
