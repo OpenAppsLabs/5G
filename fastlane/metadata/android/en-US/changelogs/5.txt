@@ -1,0 +1,6 @@
+### 1.3.0
+
+**Changes:**
+- Added QS tile support. Now you can open the settings directly from QS panel.
+- Upgraded AGP, Gradle and libraries
+- Minor UI UX revamp
