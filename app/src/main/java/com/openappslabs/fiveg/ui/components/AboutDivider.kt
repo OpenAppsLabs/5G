@@ -1,4 +1,4 @@
-package com.openappslabs.fiveg.ui.screens.aboutscreen.components
+package com.openappslabs.fiveg.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -10,9 +10,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun InfoDivider() {
+fun AboutDivider(
+    modifier: Modifier = Modifier
+) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .height(2.dp)
             .background(MaterialTheme.colorScheme.background)
