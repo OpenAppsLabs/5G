@@ -9,14 +9,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
+private val DividerThickness = 2.dp
+
 @Composable
-fun AboutDivider(
-    modifier: Modifier = Modifier
-) {
+fun AboutDivider(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .height(2.dp)
+            .height(DividerThickness)
             .background(MaterialTheme.colorScheme.background)
     )
 }

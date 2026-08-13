@@ -6,6 +6,7 @@ import android.content.Intent
 import android.provider.Settings
 import android.telephony.SubscriptionManager
 import android.widget.Toast
+import com.openappslabs.fiveg.R
 
 object RadioInfo {
     private const val SETTINGS_PACKAGE = "com.android.settings"
@@ -20,7 +21,7 @@ object RadioInfo {
         }
         val success = tryStartActivity(context, intent, SETTINGS_PACKAGE, SETTINGS_CLASS) || tryStartActivity(context, intent, PHONE_PACKAGE, PHONE_CLASS)
         if (!success) {
-            Toast.makeText(context, "Could not open Radio Info settings", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.error_open_radio_info), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -30,7 +31,6 @@ object RadioInfo {
             val intent = Intent(Settings.ACTION_NETWORK_OPERATOR_SETTINGS).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 if (subId != SubscriptionManager.INVALID_SUBSCRIPTION_ID) {
-                    // Open settings for this specific SIM
                     putExtra("android.provider.extra.SUB_ID", subId)
                 }
             }
@@ -42,7 +42,7 @@ object RadioInfo {
                 }
                 context.startActivity(fallbackIntent)
             } catch (_: Exception) {
-                Toast.makeText(context, "Could not open Network settings", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, context.getString(R.string.error_open_network_settings), Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -32,8 +33,8 @@ import com.openappslabs.fiveg.R
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun AboutMeCard() {
-    val name = "rajat"
-    val role = "DEVELOPER"
+    val name = stringResource(R.string.developer_name)
+    val role = stringResource(R.string.developer_role)
     val pfpShape = MaterialShapes.Cookie9Sided.toShape()
 
     Card(
