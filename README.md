@@ -5,11 +5,12 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/v/release/OpenAppsLabs/5G?style=for-the-badge&logo=GitHub&color=%23000000"/>
-  <img src="https://img.shields.io/github/downloads/OpenAppsLabs/5G/total?style=for-the-badge&logo=GitHub&color=%23000000"/>
-  <img src="https://img.shields.io/github/stars/OpenAppsLabs/5G?style=for-the-badge&logo=GitHub&color=%23000000"/>
-  <img src="https://img.shields.io/github/forks/OpenAppsLabs/5G?style=for-the-badge&logo=GitHub&color=%23000000"/>
-  <img src="https://img.shields.io/github/license/OpenAppsLabs/5G?style=for-the-badge&logo=GitHub&color=%23000000"/>
+    <a href="https://github.com/OpenAppsLabs/5G/releases"><img alt="badge" src="https://shieldcn.dev/github/OpenAppsLabs/5G/release.svg?variant=outline"></a>
+    <a href="https://github.com/OpenAppsLabs/5G/releases"><img alt="badge" src="https://shieldcn.dev/github/OpenAppsLabs/5G/downloads.svg?variant=outline"></a>
+    <a href="https://github.com/OpenAppsLabs/5G"><img alt="badge" src="https://shieldcn.dev/github/OpenAppsLabs/5G/stars.svg?variant=outline"></a>
+    <a href="https://github.com/OpenAppsLabs/5G/forks"><img alt="badge" src="https://shieldcn.dev/github/OpenAppsLabs/5G/forks.svg?variant=outline"></a>
+    <a href="https://github.com/OpenAppsLabs/5G/graphs/contributors"><img alt="badge" src="https://shieldcn.dev/github/OpenAppsLabs/5G/contributors.svg?variant=outline"></a>
+    <a href="https://github.com/OpenAppsLabs/5G"><img alt="badge" src="https://shieldcn.dev/github/OpenAppsLabs/5G/license.svg?variant=outline"></a>
 </p>
 
 5G is a modern, open-source Android network monitoring app built with Jetpack Compose and Material Design 3. It offers fast, simple, and privacy-focused access to real-time 5G/NR signal info and key network settings.
