@@ -1,5 +1,3 @@
-<h1 align="center">5G</h1>
-
 <p align="center">
     <img src="assets/images/hero-image.png" alt="Hero Banner"/>
 </p>
