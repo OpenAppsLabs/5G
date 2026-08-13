@@ -1,0 +1,6 @@
+- Home Screen Redesign: Redesigned the main interface for a polished look and layout.
+- Network Recovery Flow: Added a Network Settings shortcut to restore connections.
+- Dual-SIM Optimization: Auto-detects active SIM to open the correct config menu.
+- Android 17 Support: Extended compatibility to Android 17.
+- UI Refinements: Implemented minor visual tweaks across screens.
+- Performance Updates: Extracted strings, removed legacy cards, optimized code.
