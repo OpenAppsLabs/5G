@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import com.openappslabs.fiveg.BuildConfig
@@ -25,6 +26,7 @@ import com.openappslabs.fiveg.ui.components.AboutMeCard
 import com.openappslabs.fiveg.ui.components.AboutRow
 import com.openappslabs.fiveg.ui.components.AboutSectionCard
 import com.openappslabs.fiveg.ui.components.Header
+import com.openappslabs.fiveg.utils.Constants
 import java.time.Year
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -36,15 +38,14 @@ fun AboutScreen(
     val context = LocalContext.current
     val year = remember { Year.now().toString() }
     val appVersion = remember { BuildConfig.VERSION_NAME }
-    val copyrightText = remember { "Open Apps Labs © $year" }
 
-    val onOpenGithub = remember { { uriHandler.openUri("https://github.com/OpenAppsLabs") } }
-    val onOpenSource = remember { { uriHandler.openUri("https://github.com/OpenAppsLabs/5G") } }
-    val onOpenLicense = remember { { uriHandler.openUri("https://www.gnu.org/licenses/gpl-3.0.en.html") } }
+    val onOpenGithub = remember { { uriHandler.openUri(Constants.Links.GITHUB_ORG) } }
+    val onOpenSource = remember { { uriHandler.openUri(Constants.Links.GITHUB_REPO) } }
+    val onOpenLicense = remember { { uriHandler.openUri(Constants.Links.LICENSE) } }
     val onSupportEmail = remember {
         {
             val intent = Intent(Intent.ACTION_SENDTO).apply {
-                data = "mailto:openappslabs@gmail.com".toUri()
+                data = Constants.Links.SUPPORT_EMAIL.toUri()
             }
             try {
                 context.startActivity(intent)
@@ -56,10 +57,10 @@ fun AboutScreen(
     Scaffold(
         topBar = {
             Header(
-                title = "About",
+                title = stringResource(R.string.about_header_title),
                 actionIcon = painterResource(id = R.drawable.chevron_left),
                 onActionClick = onBackClick,
-                actionContentDescription = "Back"
+                actionContentDescription = stringResource(R.string.about_header_action_content_description)
             )
         }
     ) { innerPadding ->
@@ -75,15 +76,15 @@ fun AboutScreen(
 
             AboutSectionCard {
                 AboutRow(
-                    label = "APP",
-                    value = "5G",
+                    label = stringResource(R.string.about_app_label),
+                    value = stringResource(R.string.about_app_value),
                     iconPainter = painterResource(id = R.drawable.app_icon),
                     showChevron = false,
                     onClick = {}
                 )
                 AboutDivider()
                 AboutRow(
-                    label = "VERSION",
+                    label = stringResource(R.string.about_version_label),
                     value = appVersion,
                     iconPainter = painterResource(id = R.drawable.version),
                     showChevron = false,
@@ -93,15 +94,15 @@ fun AboutScreen(
 
             AboutSectionCard {
                 AboutRow(
-                    label = "ORGANIZATION",
-                    value = "Open Apps Labs",
+                    label = stringResource(R.string.about_org_label),
+                    value = stringResource(R.string.about_org_value),
                     iconPainter = painterResource(id = R.drawable.user),
                     onClick = onOpenGithub
                 )
                 AboutDivider()
                 AboutRow(
-                    label = "SOURCE CODE",
-                    value = "5G",
+                    label = stringResource(R.string.about_source_label),
+                    value = stringResource(R.string.about_source_value),
                     iconPainter = painterResource(id = R.drawable.code),
                     onClick = onOpenSource
                 )
@@ -109,15 +110,15 @@ fun AboutScreen(
 
             AboutSectionCard {
                 AboutRow(
-                    label = "SUPPORT",
-                    value = "openappslabs@gmail.com",
+                    label = stringResource(R.string.about_support_label),
+                    value = stringResource(R.string.about_support_value),
                     iconPainter = painterResource(id = R.drawable.mail),
                     onClick = onSupportEmail
                 )
                 AboutDivider()
                 AboutRow(
-                    label = "LICENSE",
-                    value = "GNU GPL v3.0",
+                    label = stringResource(R.string.about_license_label),
+                    value = stringResource(R.string.about_license_value),
                     iconPainter = painterResource(id = R.drawable.scale),
                     onClick = onOpenLicense
                 )
@@ -125,8 +126,8 @@ fun AboutScreen(
 
             AboutSectionCard {
                 AboutRow(
-                    label = "MADE WITH LOVE",
-                    value = copyrightText,
+                    label = stringResource(R.string.about_copyright_label),
+                    value = stringResource(R.string.about_copyright_value, year),
                     iconPainter = painterResource(id = R.drawable.heart),
                     tint = Color.Red.copy(alpha = 0.7f),
                     onClick = {},

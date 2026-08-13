@@ -1,3 +1,67 @@
 <resources>
     <string name="app_name">5G</string>
+
+    <!--Home Screen-->
+
+    <!--Home Screen Header-->
+    <string name="home_header_title">5G</string>
+    <string name="home_header_action_content_description">About</string>
+
+    <!--Guide Card-->
+    <string name="guide_label">GUIDE</string>
+    <string name="guide_title">Steps to Enable 5G</string>
+
+    <!--Guide Card Steps-->
+    <string name="guide_step_1">Tap \'Open 5G settings\' below.</string>
+    <string name="guide_step_2">Scroll down to \'Set Preferred Network Type\'.</string>
+    <string name="guide_step_3">Select \'NR Only\'.</string>
+
+    <!--Notice Card-->
+    <string name="notice_label">NOTICE</string>
+    <string name="notice_title">Important Note</string>
+    <string name="notice_content">In case you don\'t see the signal, tap the button below and set network type to \'LTE/4G\'. Else it works just fine.</string>
+
+    <!--Network Settings Button-->
+    <string name="network_settings_button">Network Settings</string>
+
+    <!--Bottom Bar-->
+    <string name="bottom_bar_add_tile">Add QS Tile</string>
+    <string name="bottom_bar_open_settings">Open 5G Settings</string>
+
+    <!--About Screen-->
+
+    <!--About Screen Header-->
+    <string name="about_header_title">About</string>
+    <string name="about_header_action_content_description">Back</string>
+
+    <!--About Me Card-->
+    <string name="developer_name">rajat</string>
+    <string name="developer_role">DEVELOPER</string>
+
+    <!-- About Screen - App & Version Section -->
+    <string name="about_app_label">APP</string>
+    <string name="about_app_value">5G</string>
+    <string name="about_version_label">VERSION</string>
+    <!-- Version value is from BuildConfig, no string needed -->
+
+    <!-- About Screen - Organization & Source Code Section -->
+    <string name="about_org_label">ORGANIZATION</string>
+    <string name="about_org_value">Open Apps Labs</string>
+    <string name="about_source_label">SOURCE CODE</string>
+    <string name="about_source_value">5G</string>
+
+    <!-- About Screen - Support & License Section -->
+    <string name="about_support_label">SUPPORT</string>
+    <string name="about_support_value">openappslabs@gmail.com</string>
+    <string name="about_license_label">LICENSE</string>
+    <string name="about_license_value">GNU GPL v3.0</string>
+
+    <!-- About Screen - Copyright Section -->
+    <string name="about_copyright_label">MADE WITH LOVE</string>
+    <string name="about_copyright_value">Open Apps Labs © %1$s</string>
+
+    <!-- Errors & System -->
+    <string name="error_open_radio_info">Could not open Radio Info settings</string>
+    <string name="error_open_network_settings">Could not open Network settings</string>
+    <string name="error_radio_info_not_supported">Radio Info not supported on this device</string>
 </resources>

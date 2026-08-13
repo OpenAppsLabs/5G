@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.service.quicksettings.TileService
 import android.widget.Toast
+import com.openappslabs.fiveg.R
 
 object TileRadioInfo {
     private val COMPONENTS = arrayOf(
@@ -43,7 +44,7 @@ object TileRadioInfo {
         val component = cachedComponent ?: preResolve(context)
 
         if (component == null) {
-            Toast.makeText(context, "Radio Info not supported on this device", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.error_radio_info_not_supported), Toast.LENGTH_SHORT).show()
             return
         }
 
