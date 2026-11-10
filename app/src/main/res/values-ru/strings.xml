@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">5G</string>
+
+    <!--Home Screen-->
+
+    <!--Home Screen Header-->
+    <string name="home_header_title">5G</string>
+    <string name="home_header_action_content_description">О </string>
+
+    <!--Guide Card-->
+    <string name="guide_label">РУКОВОДСТВО</string>
+    <string name="guide_title">Шаги для включения 5G</string>
+
+    <!--Guide Card Steps-->
+    <string name="guide_step_1">Нажмите \'Открыть настройки 5G» ниже\'.</string>
+    <string name="guide_step_2">Прокрутите вниз до \'Set Preferred Network Type\'.</string>
+    <string name="guide_step_3">Выберите \'NR Only\'.</string>
+
+    <!--Notice Card-->
+    <string name="notice_label">ВНИМАНИЕ</string>
+    <string name="notice_title">Важное замечание</string>
+    <string name="notice_content">Если сигнал не отображается, нажмите кнопку ниже и установите тип сети \'LTE/4G\'. В остальных случаях всё работает как надо.</string>
+
+    <!--Network Settings Button-->
+    <string name="network_settings_button">Настройки сети</string>
+
+    <!--Bottom Bar-->
+    <string name="bottom_bar_add_tile">Добавить плитку QS</string>
+    <string name="bottom_bar_open_settings">Открыть настройки 5G</string>
+
+    <!--About Screen-->
+
+    <!--About Screen Header-->
+    <string name="about_header_title">О приложении</string>
+    <string name="about_header_action_content_description">Назад</string>
+
+    <!--About Me Card-->
+    <string name="developer_name">rajat</string>
+    <string name="developer_role">РАЗРАБОТЧИК</string>
+
+    <!-- About Screen - App & Version Section -->
+    <string name="about_app_label">ПРИЛОЖЕНИЕ</string>
+    <string name="about_app_value">5G</string>
+    <string name="about_version_label">ВЕРСИЯ</string>
+    <!-- Version value is from BuildConfig, no string needed -->
+
+    <!-- About Screen - Organization & Source Code Section -->
+    <string name="about_org_label">ОРГАНИЗАЦИЯ</string>
+    <string name="about_org_value">Open Apps Labs</string>
+    <string name="about_source_label">ИСХОДНЫЙ КОД</string>
+    <string name="about_source_value">5G</string>
+
+    <!-- About Screen - Support & License Section -->
+    <string name="about_support_label">ПОДДЕРЖКА</string>
+    <string name="about_support_value">openappslabs@gmail.com</string>
+    <string name="about_license_label">ЛИЦЕНЗИЯ</string>
+    <string name="about_license_value">GNU GPL v3.0</string>
+
+    <!-- About Screen - Copyright Section -->
+    <string name="about_copyright_label">СДЕЛАНО С ЛЮБОВЬЮ</string>
+    <string name="about_copyright_value">Open Apps Labs © %1$s</string>
+
+    <!-- Errors & System -->
+    <string name="error_open_radio_info">Не удалось открыть настройки Radio Info</string>
+    <string name="error_open_network_settings">Не удалось открыть настройки сети</string>
+    <string name="error_radio_info_not_supported">Radio Info не поддерживается на этом устройстве</string>
+</resources>
